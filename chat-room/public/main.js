@@ -1,6 +1,6 @@
 // main.js
 document.addEventListener('DOMContentLoaded', (event) => {
-    const socket = new WebSocket(`ws://${window.location.host}`);
+    const apiUrl = '/api/chat';
 
     // Generate random username if not already set in cookies
     if (!getCookie('username')) {
@@ -19,17 +19,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    socket.onmessage = function(event) {
-        const messageElement = document.createElement('div');
-        messageElement.textContent = event.data;
-        chatLog.appendChild(messageElement);
-        chatLog.scrollTop = chatLog.scrollHeight;  // Auto-scroll to the bottom
-    };
+    // Poll for new messages every 2 seconds
+    setInterval(fetchMessages, 2000);
 
-    function sendMessage() {
+    async function fetchMessages() {
+        const response = await fetch(apiUrl);
+        const messages = await response.json();
+        chatLog.innerHTML = '';
+        messages.forEach(msg => {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = `${msg.username}: ${msg.message}`;
+            chatLog.appendChild(messageElement);
+        });
+        chatLog.scrollTop = chatLog.scrollHeight;  // Auto-scroll to the bottom
+    }
+
+    async function sendMessage() {
         const message = messageInput.value.trim();
         if (message) {
-            socket.send(`${username}: ${message}`);
+            const payload = { username, message };
+            await fetch(apiUrl, {
+                method: 'POST',
+                body: JSON.stringify(payload)
+            });
             messageInput.value = '';
         }
     }
