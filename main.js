@@ -1,89 +1,62 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Generate a random username for the user
-  function generateUsername() {
-    const animals = ['cat', 'dog', 'elephant', 'lion', 'tiger'];
-    const tools = ['hammer', 'screwdriver', 'wrench', 'pliers', 'saw'];
-    const vehicles = ['car', 'bike', 'bus', 'train', 'plane'];
-    const numbers = ['123', '456', '789', '000', '999', '001', '002', '003', '004', '005'];
-
-    const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
-    const randomTool = tools[Math.floor(Math.random() * tools.length)];
-    const randomVehicle = vehicles[Math.floor(Math.random() * vehicles.length)];
-    const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
-
-    return `${randomAnimal}${randomTool}${randomVehicle}${randomNumber}`;
+// main.js
+document.addEventListener('DOMContentLoaded', (event) => {
+  // Generate random username if not already set in cookies
+  if (!getCookie('username')) {
+      setCookie('username', generateRandomUsername(), 365);
   }
+  
+  const sendButton = document.getElementById('send-button');
+  sendButton.addEventListener('click', sendMessage);
 
-  // Get the username from the cookie or generate a new one
-  function getUsername() {
-    const username = getCookie('username');
-    if (username) {
-      return username;
-    } else {
-      const newUsername = generateUsername();
-      setCookie('username', newUsername, 30);
-      return newUsername;
-    }
-  }
-
-  // Set a cookie with the given name, value, and expiration days
-  function setCookie(name, value, days) {
-    const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
-    document.cookie = `${name}=${value}; expires=${expires}; path=/`;
-  }
-
-  // Get the value of a cookie with the given name
-  function getCookie(name) {
-    const cookies = document.cookie.split(';');
-    for (const cookie of cookies) {
-      const [key, value] = cookie.trim().split('=');
-      if (key === name) {
-        return value;
+  const messageInput = document.getElementById('message-input');
+  messageInput.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+          sendMessage();
       }
-    }
-    return null;
-  }
-
-  // Add an event listener to the message input field to send the message when the user presses Enter
-  document.getElementById('messageInput').addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      sendMessage();
-    }
   });
+});
 
-  // Add an event listener to the send button to send the message when the user clicks it
-  document.getElementById('sendButton').addEventListener('click', sendMessage);
-
-  // Send a message to the server
-  function sendMessage() {
-    const messageInput = document.getElementById('messageInput');
-    const message = messageInput.value;
-    if (message.trim()) {
-      const username = getUsername();
+function sendMessage() {
+  const chatLog = document.getElementById('chat-log');
+  const messageInput = document.getElementById('message-input');
+  const message = messageInput.value.trim();
+  
+  if (message) {
+      const username = getCookie('username');
       const messageElement = document.createElement('div');
       messageElement.textContent = `${username}: ${message}`;
-      const chatContainer = document.getElementById('chatContainer');
-      chatContainer.appendChild(messageElement);
+      chatLog.appendChild(messageElement);
       messageInput.value = '';
-      // Upload the message to the server
-      fetch('/uploadMessage', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, message })
-      })
-      .then(response => {
-        if (response.ok) {
-          console.log('Message uploaded successfully');
-        } else {
-          console.error('Failed to upload message');
-        }
-      })
-      .catch(error => {
-        console.error('Failed to upload message:', error);
-      });
-    }
+      chatLog.scrollTop = chatLog.scrollHeight;  // Auto-scroll to the bottom
   }
-});
+}
+
+function generateRandomUsername() {
+  const names = ['Penguin', 'Wrench', 'Cat', 'Dog', 'Eagle', 'Lion'];
+  const randomName = names[Math.floor(Math.random() * names.length)];
+  const randomNumber = Math.floor(Math.random() * 1000);
+  return `${randomName}${randomNumber}`;
+}
+
+function setCookie(name, value, days) {
+  const d = new Date();
+  d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+  const expires = "expires=" + d.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(name) {
+  const cname = name + "=";
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') {
+          c = c.substring(1);
+      }
+      if (c.indexOf(cname) === 0) {
+          return c.substring(cname.length, c.length);
+      }
+  }
+  return "";
+}
