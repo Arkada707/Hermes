@@ -44,6 +44,17 @@ document.addEventListener('DOMContentLoaded', () => {
     return null;
   }
 
+  // Add an event listener to the message input field to send the message when the user presses Enter
+  document.getElementById('messageInput').addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      sendMessage();
+    }
+  });
+
+  // Add an event listener to the send button to send the message when the user clicks it
+  document.getElementById('sendButton').addEventListener('click', sendMessage);
+
   // Send a message to the server
   function sendMessage() {
     const messageInput = document.getElementById('messageInput');
@@ -55,20 +66,24 @@ document.addEventListener('DOMContentLoaded', () => {
       const chatContainer = document.getElementById('chatContainer');
       chatContainer.appendChild(messageElement);
       messageInput.value = '';
-      socket.addEventListener('open', () => {
-        socket.send(JSON.stringify({ username, message }));
+      // Upload the message to the server
+      fetch('/uploadMessage', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, message })
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log('Message uploaded successfully');
+        } else {
+          console.error('Failed to upload message');
+        }
+      })
+      .catch(error => {
+        console.error('Failed to upload message:', error);
       });
     }
   }
-
-  // Add an event listener to the message input field to send the message when the user presses Enter
-  document.getElementById('messageInput').addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      sendMessage();
-    }
-  });
-
-  // Add an event listener to the send button to send the message when the user clicks it
-  document.getElementById('sendButton').addEventListener('click', sendMessage);
 });
