@@ -6,15 +6,17 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
 .chat-container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
     height: 100%;
     border: 2px solid #00ff00;
     background-color: #001a00;
@@ -50,8 +52,8 @@ body {
 
 .input-container {
     display: flex;
-    border-top: 2px solid #00ff00;
     padding: 10px;
+    border-top: 2px solid #00ff00;
     background-color: #002200;
 }
 
@@ -79,28 +81,7 @@ body {
 /* Responsive styles for mobile devices */
 @media only screen and (max-width: 600px) {
     .chat-container {
-        width: 80%; /* Reduce the size by 20% */
-        height: 80%; /* Reduce the size by 20% */
-    }
-}
-
-/* Responsive styles for tablets */
-@media only screen and (min-width: 601px) and (max-width: 1200px) {
-    .chat-container {
-        width: 90%; /* Utilize more screen space on tablets */
-        height: 90%; /* Utilize more screen space on tablets */
-    }
-}
-
-/* Responsive styles for desktops/laptops */
-@media only screen and (min-width: 1201px) {
-    body {
-        justify-content: flex-start; /* Align chat container to the top on larger screens */
-        padding: 20px; /* Add some padding around the chat container */
-    }
-    .chat-container {
-        width: 100%; /* Utilize the full width on larger screens */
-        height: auto; /* Auto height to fit the content */
-        max-height: calc(100vh - 40px); /* Adjust max height to fit within the viewport */
+        width: 100%; /* Full width on small screens */
+        height: 100%;
     }
 }
