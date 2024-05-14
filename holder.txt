@@ -1,0 +1,14 @@
+// Generate a random username for the user
+function generateUsername() {
+  const animals = ['cat', 'dog', 'elephant', 'lion', 'tiger'];
+  const tools = ['hammer', 'screwdriver', 'wrench', 'pliers', 'saw'];
+  const vehicles = ['car', 'bike', 'bus', 'train', 'plane'];
+  const numbers = ['123', '456', '789', '000', '999', '001', '002', '003', '004', '005'];
+
+  const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+  const randomTool = tools[Math.floor(Math.random() * tools.length)];
+  const randomVehicle = vehicles[Math.floor(Math.random() * vehicles.length)];
+  const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+
+  return `${randomAnimal}${randomTool}${randomVehicle}${randomNumber}`;
+}
