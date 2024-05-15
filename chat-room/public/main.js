@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const chatLog = document.getElementById('chat-log');
     const sendButton = document.getElementById('send-button');
     const messageInput = document.getElementById('message-input');
+    const createButton = document.getElementById('create-button');
 
     sendButton.addEventListener('click', sendMessage);
     messageInput.addEventListener('keypress', function (e) {
@@ -74,6 +75,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
         }
         return "";
+    }
+
+    createButton.addEventListener('click', createPrivateRoom);
+
+    async function createPrivateRoom() {
+        const response = await fetch('/api/create-room', {
+            method: 'POST',
+            body: JSON.stringify({ username }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const room = await response.json();
+        if (room) {
+            // Redirect the user to the private room
+            window.location.href = `/room/${room.id}`;
+        }
     }
 
 });
