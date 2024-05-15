@@ -20,8 +20,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    addButton.addEventListener('click', showPopup);
-
     // Poll for new messages every 2 seconds
     setInterval(fetchMessages, 2000);
 
@@ -95,6 +93,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     function showPopup() {
         document.getElementById('popup').classList.remove('hidden');
     }
+
+    addButton.addEventListener('click', showPopup);
 
     // Function to hide the pop-up
     function hidePopup() {
