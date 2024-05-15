@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
 
   function playNotificationSound() {
-    const audio = new Audio('./sound/alert.mp3');
     audio.onecanplay = function() {
       // Play audio only if it's supported and user-initiated
+      const audio = document.getElementById('notificationSound');
       audio.play().catch(function(error) {
         console.error("Error playing audio: ", error);
       });
