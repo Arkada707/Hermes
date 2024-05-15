@@ -40,21 +40,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   }
 
-  function playNotificationSound() {
-    audio.onecanplay = function() {
-      // Play audio only if it's supported and user-initiated
-      const audio = document.getElementById('notificationSound');
-      audio.play().catch(function(error) {
-        console.error("Error playing audio: ", error);
-      });
-    };
-  }
-
-  document.getElementById('send-button').addEventListener('click', function() {
-    console.log("Button Clicked");
-    playNotificationSound();
-  });
-
   async function sendMessage() {
     const message = messageInput.value.trim();
     if (message) {
