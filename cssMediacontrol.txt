@@ -1,0 +1,29 @@
+/* Responsive styles for mobile devices */
+@media only screen and (max-width: 600px) {
+    .chat-container {
+        width: 100%; /* Full width on small screens */
+        height: 85%;
+        overflow-y: scroll;
+        scrollbar-color: #00ff00 #001a00;
+    }
+
+    #chat-log {
+        overflow-y: scroll; /* Enable vertical scrolling on mobile devices */
+        overflow-x: scroll; /* Enable horizontal scrolling on mobile devices */
+        scrollbar-color: #00ff00 #001a00;
+    }
+}
+
+/* Responsive styles for desktop/laptop screens */
+@media only screen and (min-width: 601px) {
+    .chat-container {
+        width: 100%; /* Full width on desktop/laptop screens */
+        height: 100%;
+    }
+
+    #chat-log {
+        overflow-y: scroll; /* Enable vertical scrolling on mobile devices */
+        scrollbar-color: #00ff00 #001a00;
+    }
+
+}
