@@ -40,6 +40,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   }
 
+  function playNotificationSound() {
+    const audio = new Audio('./sound/alert.wav');
+    audio.onecanplay = function() {
+      // Play audio only if it's supported and user-initiated
+      audio.play().catch(function(error) {
+        console.error("Error playing audio: ", error);
+      });
+    };
+  }
+
   async function sendMessage() {
     const message = messageInput.value.trim();
     if (message) {
@@ -50,7 +60,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
       });
       messageInput.value = '';
     }
-    playNotificationSound();
   }
 
   function generateRandomUsername() {
