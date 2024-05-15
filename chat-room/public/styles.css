@@ -87,9 +87,24 @@ body {
     .chat-container {
         width: 100%; /* Full width on small screens */
         height: 85%;
+        overflow-y: scroll;
     }
 
     #chat-log {
         overflow-y: scroll; /* Enable vertical scrolling on mobile devices */
     }
+}
+
+/* Responsive styles for desktop/laptop screens */
+@media only screen and (min-width: 601px) {
+    .chat-container {
+        width: 100%; /* Full width on desktop/laptop screens */
+        height: 100%;
+        overflow-y: scroll; /* Enable vertical scrolling on desktop/laptop screens */
+    }
+
+    #chat-log {
+        overflow-y: scroll; /* Enable vertical scrolling on mobile devices */
+    }
+
 }
