@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Chat Room</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="tabs"></div>
-  <div class="header">
-    <button id="add-button">[+]</button>
-    <h1>Chat Room</h1>
-  </div>
-  <div id="chat-log"></div>
-  <input id="message-input" type="text" placeholder="Type a message...">
-  <button id="send-button">Send</button>
-
-  <div id="popup" class="hidden">
-    <button onclick="createRoom()">Create Room</button>
-    <button onclick="connectUser()">Connect User</button>
-    <button onclick="hidePopup()">Close</button>
-  </div>
-
-  <script src="main.js"></script>
+    <div class="chat-container">
+        <div class="header">
+            <button class="add-button">[+]</button>
+            <h1>Chat Room</h1>
+        </div>
+        <div id="chat-log"></div>
+        <div class="input-container">
+            <input id="message-input" type="text" placeholder="Type a message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>

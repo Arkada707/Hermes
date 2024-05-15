@@ -1,9 +1,29 @@
-/* styles.css */
+/* public/styles.css */
 
+/* Base styles */
 body {
-    background-color: black;
-    color: #00FF00;
+    background-color: #000;
+    color: #00ff00;
     font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Prevent scrolling on the body */
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    border: 2px solid #00ff00;
+    background-color: #001a00;
+    overflow: hidden; /* Prevent scrolling within the container */
 }
 
 .header {
@@ -11,74 +31,83 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border-bottom: 2px solid #00FF00;
+    border-bottom: 2px solid #00ff00;
+    background-color: #002200;
 }
 
-#tabs {
-    display: flex;
-    border-bottom: 2px solid #00FF00;
-    overflow-x: auto;
+.header h1 {
+    margin: 0;
 }
 
-.tab {
-    padding: 10px;
+.header .add-button {
+    padding: 5px 10px;
+    border: 2px solid #00ff00;
+    background-color: #002200;
+    color: #00ff00;
     cursor: pointer;
-    border-right: 1px solid #00FF00;
 }
 
 #chat-log {
     flex: 1;
     padding: 10px;
-    overflow-y: auto;
-    border-bottom: 2px solid #00FF00;
+    background-color: #001a00;
+    overflow: hidden; /* Prevent scrolling by default */
+}
+
+.input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 2px solid #00ff00;
+    background-color: #002200;
 }
 
 #message-input {
-    width: calc(100% - 100px);
+    flex: 1;
     padding: 10px;
-    border: 1px solid #00FF00;
-    background-color: black;
-    color: #00FF00;
+    border: 2px solid #00ff00;
+    background-color: #002200;
+    color: #00ff00;
+    margin-right: 10px;
 }
 
 #send-button {
-    width: 80px;
     padding: 10px;
-    border: 1px solid #00FF00;
-    background-color: black;
-    color: #00FF00;
+    border: 2px solid #00ff00;
+    background-color: #002200;
+    color: #00ff00;
     cursor: pointer;
 }
 
-#add-button {
-    padding: 10px;
-    border: 1px solid #00FF00;
-    background-color: black;
-    color: #00FF00;
-    cursor: pointer;
+#send-button:hover {
+    background-color: #004400;
 }
 
-#popup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: black;
-    border: 2px solid #00FF00;
-    display: none;
+/* Responsive styles for mobile devices */
+@media only screen and (max-width: 600px) {
+    .chat-container {
+        width: 100%; /* Full width on small screens */
+        height: 85%;
+        overflow-y: scroll;
+        scrollbar-color: #00ff00 #001a00;
+    }
+
+    #chat-log {
+        overflow-y: scroll; /* Enable vertical scrolling on mobile devices */
+        overflow-x: scroll; /* Enable horizontal scrolling on mobile devices */
+        scrollbar-color: #00ff00 #001a00;
+    }
 }
 
-#popup.hidden {
-    display: none;
-}
+/* Responsive styles for desktop/laptop screens */
+@media only screen and (min-width: 601px) {
+    .chat-container {
+        width: 100%; /* Full width on desktop/laptop screens */
+        height: 100%;
+    }
 
-#popup button {
-    display: block;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #00FF00;
-    background-color: black;
-    color: #00FF00;
-    cursor: pointer;
+    #chat-log {
+        overflow-y: scroll; /* Enable vertical scrolling on mobile devices */
+        scrollbar-color: #00ff00 #001a00;
+    }
+
 }
