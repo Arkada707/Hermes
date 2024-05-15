@@ -33,6 +33,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
       chatLog.appendChild(messageElement);
     });
     chatLog.scrollTop = chatLog.scrollHeight;  // Auto-scroll to the bottom
+
+    // Play notification sound
+    playNotificationSound();
+  }
+
+  function playNotificationSound() {
+    const audio = new Audio('../sound/alert.mp3');
+    audio.play();
   }
 
   async function sendMessage() {
