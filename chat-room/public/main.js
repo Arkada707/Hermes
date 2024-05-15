@@ -23,19 +23,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
   // Poll for new messages every 0.5 seconds
   setInterval(fetchMessages, 500);
 
+  let previousMessageCount = 0;
+
   async function fetchMessages() {
     const response = await fetch(apiUrl);
     const messages = await response.json();
-    chatLog.innerHTML = '';
-    messages.forEach(msg => {
-      const messageElement = document.createElement('div');
-      messageElement.textContent = `${msg.username}: ${msg.message}`;
-      chatLog.appendChild(messageElement);
-    });
-    chatLog.scrollTop = chatLog.scrollHeight;  // Auto-scroll to the bottom
 
-    // Play notification sound
-    playNotificationSound();
+    const currentMessageCount = messages.length;
+
+    if (currentMessageCount > previousMessageCount) {
+      chatLog.innerHTML = '';
+      messages.forEach(msg => {
+        const messageElement = document.createElement('div');
+        messageElement.textContent = `${msg.username}: ${msg.message}`;
+        chatLog.appendChild(messageElement);
+      });
+      chatLog.scrollTop = chatLog.scrollHeight;  // Auto-scroll to the bottom
+
+      // Play notification sound
+      playNotificationSound();
+    }
+
+    previousMessageCount = currentMessageCount;
   }
 
   function playNotificationSound() {
