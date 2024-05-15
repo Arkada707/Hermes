@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
 
   document.getElementById('send-button').addEventListener('click', function() {
+    console.log("Button Clicked");
     playNotificationSound();
   });
 
