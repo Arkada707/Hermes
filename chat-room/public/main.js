@@ -40,7 +40,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   function playNotificationSound() {
     const audio = new Audio('../sound/alert.mp3');
-    audio.play();
+    audio.oneerror = function() {
+      console.error("Error loading audio file: ", audio.src);
+    };
+    audio.onecanplay = function() {
+      audio.play().catch(function(error) {
+        console.error("Error playing audio: ", error);
+      });
+    };
   }
 
   async function sendMessage() {
