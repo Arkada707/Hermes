@@ -50,6 +50,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     };
   }
 
+  document.getElementById('send-button').addEventListener('click', function() {
+    playNotificationSound();
+  });
+
   async function sendMessage() {
     const message = messageInput.value.trim();
     if (message) {
