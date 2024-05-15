@@ -10,9 +10,6 @@
     <div class="chat-container">
         <div class="header">
             <button class="create-button" onclick="createPrivateRoom()">[+]</button>
-            <audio controls>
-              <source src="alert.wav" type="audio/mpeg">
-            </audio>
             <h1>Chat Room</h1>
         </div>
         <div id="chat-log"></div>
@@ -21,6 +18,10 @@
             <button id="send-button">Send</button>
         </div>
     </div>
+    <audio id="notificationSound">
+      <source src="./sound/alert.mp3" type="audio/mpeg">
+      Your browser does not support audio element.
+    </audio>
     <script src="main.js"></script>
 </body>
 </html>
