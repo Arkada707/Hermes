@@ -80,17 +80,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
     createButton.addEventListener('click', createPrivateRoom);
 
     async function createPrivateRoom() {
-        const response = await fetch('/api/create-room', {
-            method: 'POST',
-            body: JSON.stringify({ username }),
-            headers: {
-                'Content-Type': 'application/json'
+        const usernameToConnect = prompt('Enter the username of the user you want to connect to:');
+        const roomName = prompt('Enter the name of the room:');
+        
+        if (usernameToConnect && roomName) {
+            const response = await fetch('/api/create-room', {
+                method: 'POST',
+                body: JSON.stringify({ username, usernameToConnect, roomName }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const room = await response.json();
+            if (room) {
+                // Redirect the user to the private room
+                window.location.href = `/room/${room.id}`;
             }
-        });
-        const room = await response.json();
-        if (room) {
-            // Redirect the user to the private room
-            window.location.href = `/room/${room.id}`;
         }
     }
 
