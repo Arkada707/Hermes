@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const chatLog = document.getElementById('chat-log');
     const sendButton = document.getElementById('send-button');
     const messageInput = document.getElementById('message-input');
+    const addButton = document.getElementById('add-button');
 
     sendButton.addEventListener('click', sendMessage);
     messageInput.addEventListener('keypress', function (e) {
@@ -19,8 +20,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
+    addButton.addEventListener('click', showPopup);
+
     // Poll for new messages every 2 seconds
-    setInterval(fetchMessages, 1000);
+    setInterval(fetchMessages, 2000);
 
     let currentRoom = 'general'; // Default room
 

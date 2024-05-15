@@ -50,6 +50,14 @@ body {
     cursor: pointer;
 }
 
+#add-button {
+    padding: 10px;
+    border: 1px solid #00FF00;
+    background-color: black;
+    color: #00FF00;
+    cursor: pointer;
+}
+
 #popup {
     position: absolute;
     top: 50%;
