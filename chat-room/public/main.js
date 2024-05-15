@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       });
       messageInput.value = '';
     }
+    playNotificationSound();
   }
 
   function generateRandomUsername() {
