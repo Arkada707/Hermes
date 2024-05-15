@@ -10,15 +10,15 @@
     <div class="chat-container">
         <div class="header">
             <button class="create-button" onclick="createPrivateRoom()">[+]</button>
+            <audio controls>
+              <source src="alert.wav" type="audio/mpeg">
+            </audio>
             <h1>Chat Room</h1>
         </div>
         <div id="chat-log"></div>
         <div class="input-container">
             <input id="message-input" type="text" placeholder="Type a message...">
             <button id="send-button">Send</button>
-            <audio controls>
-              <source src="alert.mp3" type="audio/mpeg">
-            </audio>
         </div>
     </div>
     <script src="main.js"></script>
