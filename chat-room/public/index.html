@@ -1,27 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat Room</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="chat-container">
-        <div class="header">
-            <button class="create-button" onclick="createPrivateRoom()">[+]</button>
-            <h1>Chat Room</h1>
-        </div>
-        <div id="chat-log"></div>
-        <div class="input-container">
-            <input id="message-input" type="text" placeholder="Type a message...">
-            <button id="send-button">Send</button>
-        </div>
+      <div class="header">
+        <button class="create-button" onclick="createPrivateRoom()">[+]</button>
+        <h1>Chat Room</h1>
+      </div>
+      <div id="chat-log"></div>
+      <div class="input-container">
+        <input id="message-input" type="text" placeholder="Type a message..." />
+        <button id="send-button">Send</button>
+      </div>
     </div>
     <audio id="notificationSound">
-      <source src="./sound/alert.mp3" type="audio/mpeg">
+      <source src="./sound/alert.mp3" type="audio/mpeg" />
       Your browser does not support audio element.
     </audio>
     <script src="main.js"></script>
-</body>
+    <script src="firebase-sdk.js"></script>
+  </body>
 </html>
