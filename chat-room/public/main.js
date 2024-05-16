@@ -1,6 +1,7 @@
 // main.js
 document.addEventListener("DOMContentLoaded", (event) => {
   const apiUrl = "/api/chat";
+  var db = firebase.database();
 
   // Generate random username if not already set in cookies
   if (!getCookie("username")) {
@@ -101,6 +102,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
     return "";
   }
-
-  var db = firebase.database();
 });
