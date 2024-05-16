@@ -63,14 +63,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       });
       messageInput.value = "";
     }
-    db.ref("chats/").once("value", function (message_object) {
-      var index = parseFloat(message_object.numChildren()) + 1;
-      db.ref("chats/" + "message_${index}").set({
-        name: username,
-        message: message,
-        index: index,
-      });
-    });
   }
 
   function generateRandomUsername() {
