@@ -64,15 +64,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
     db.ref("chats/").once("value", function (message_object) {
       var index = parseFloat(message_object.numChildren()) + 1;
-      db.ref("chats/" + "mesage_${index}")
-        .set({
-          name: parent.get_name(),
-          message: message,
-          index: index,
-        })
-        .then(function () {
-          parent.refresh_chat();
-        });
+      db.ref("chats/" + "message_${index}").set({
+        name: username,
+        message: message,
+        index: index,
+      });
     });
   }
 
