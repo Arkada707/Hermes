@@ -1,21 +1,21 @@
 // main.js
-document.addEventListener('DOMContentLoaded', (event) => {
-  const apiUrl = '/api/chat';
+document.addEventListener("DOMContentLoaded", (event) => {
+  const apiUrl = "/api/chat";
 
   // Generate random username if not already set in cookies
-  if (!getCookie('username')) {
-    setCookie('username', generateRandomUsername(), 365);
+  if (!getCookie("username")) {
+    setCookie("username", generateRandomUsername(), 365);
   }
-  const username = getCookie('username');
+  const username = getCookie("username");
 
-  const chatLog = document.getElementById('chat-log');
-  const sendButton = document.getElementById('send-button');
-  const messageInput = document.getElementById('message-input');
+  const chatLog = document.getElementById("chat-log");
+  const sendButton = document.getElementById("send-button");
+  const messageInput = document.getElementById("message-input");
   //const createButton = document.getElementById('create-button');
 
-  sendButton.addEventListener('click', sendMessage);
-  messageInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
+  sendButton.addEventListener("click", sendMessage);
+  messageInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
       sendMessage();
     }
   });
@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const currentMessageCount = messages.length;
 
     if (currentMessageCount > previousMessageCount) {
-      chatLog.innerHTML = '';
-      messages.forEach(msg => {
-        const messageElement = document.createElement('div');
+      chatLog.innerHTML = "";
+      messages.forEach((msg) => {
+        const messageElement = document.createElement("div");
         messageElement.textContent = `${msg.username}: ${msg.message}`;
         chatLog.appendChild(messageElement);
       });
-      chatLog.scrollTop = chatLog.scrollHeight;  // Auto-scroll to the bottom
+      chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to the bottom
 
       // Play notification sound
       playNotificationSound();
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
 
   function playNotificationSound() {
-    const audio = document.getElementById('notificationSound');
+    const audio = document.getElementById("notificationSound");
     audio.play();
   }
 
@@ -57,15 +57,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
     if (message) {
       const payload = { username, message };
       await fetch(apiUrl, {
-        method: 'POST',
-        body: JSON.stringify(payload)
+        method: "POST",
+        body: JSON.stringify(payload),
       });
-      messageInput.value = '';
+      messageInput.value = "";
     }
+    db.ref("chats/").once("value", function (message_object) {
+      var index = parseFloat(message_object.numChildren()) + 1;
+      db.ref("chats/" + "mesage_${index}")
+        .set({
+          name: parent.get_name(),
+          message: message,
+          index: index,
+        })
+        .then(function () {
+          parent.refresh_chat();
+        });
+    });
   }
 
   function generateRandomUsername() {
-    const names = ['Penguin', 'Wrench', 'Cat', 'Dog', 'Eagle', 'Lion'];
+    const names = ["Penguin", "Wrench", "Cat", "Dog", "Eagle", "Lion"];
     const randomName = names[Math.floor(Math.random() * names.length)];
     const randomNumber = Math.floor(Math.random() * 1000);
     return `${randomName}${randomNumber}`;
@@ -73,7 +85,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   function setCookie(name, value, days) {
     const d = new Date();
-    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
     const expires = "expires=" + d.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
   }
@@ -81,10 +93,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
   function getCookie(name) {
     const cname = name + "=";
     const decodedCookie = decodeURIComponent(document.cookie);
-    const ca = decodedCookie.split(';');
+    const ca = decodedCookie.split(";");
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
-      while (c.charAt(0) === ' ') {
+      while (c.charAt(0) === " ") {
         c = c.substring(1);
       }
       if (c.indexOf(cname) === 0) {
@@ -94,4 +106,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
     return "";
   }
 
+  var db = firebase.database();
 });
