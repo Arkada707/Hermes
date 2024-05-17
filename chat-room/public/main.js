@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const chatLog = document.getElementById('chat-log');
     const sendButton = document.getElementById('send-button');
     const messageInput = document.getElementById('message-input');
-    //const createButton = document.getElementById('create-button');
+    const createButton = document.getElementById('create-button');
 
     sendButton.addEventListener('click', sendMessage);
     messageInput.addEventListener('keypress', function (e) {
@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    // Poll for new messages every 2 seconds
-    setInterval(fetchMessages, 2000);
+    // Poll for new messages every 1 second
+    setInterval(fetchMessages, 1000);
 
     async function fetchMessages() {
         const response = await fetch(apiUrl);
@@ -77,10 +77,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         return "";
     }
 
-    const createButton = document.getElementById('create-button');
     createButton.addEventListener('click', writeUp);
 
-    function writeUp() {
+    async function writeUp() {
         const meanRemarks = ["I bet your girlfriend left you. LOL!", "I can't stand you!", "You are so annoying!", "Go away!", "You are GAY!", "Nice C#ck!", "Ur PP smol", "Why are you gay?", "Lonely, you are so lonely, you have nobody, you're on your own HA!"];
         const randomRemark = meanRemarks[Math.floor(Math.random() * meanRemarks.length)];
         const messageElement = document.createElement('div');
