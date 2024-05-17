@@ -11,7 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
-    "firebase-admin": "^12.1.0",
     "netlify-cli": "^17.23.3",
     "ws": "^8.17.0"
   },
