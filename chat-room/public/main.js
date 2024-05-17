@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const sendButton = document.getElementById("send-button");
   const messageInput = document.getElementById("message-input");
   const createButton = document.getElementById("create-button");
+  const deleteButton = document.getElementById("create-button");
 
   sendButton.addEventListener("click", sendMessage);
   messageInput.addEventListener("keypress", function (e) {
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   });
 
-  createButton.addEventListener("click", deleteMessages());
+  deleteButton.addEventListener("click", deleteMessages());
 
   // Poll for new messages every 1 second
   setInterval(fetchMessages, 1000);
