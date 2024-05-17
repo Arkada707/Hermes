@@ -7,107 +7,49 @@ Welcome to our project's ideas and features list! Here we document and track all
 1. [✨ New Features](#new-features)
 2. [⚙️ Enhancements](#enhancements)
 3. [🐛 Bug Fixes](#bug-fixes)
-4. [📝 Documentation](#documentation)
-5. [📥 Backlog](#backlog)
-6. [✅ Completed](#completed)
-
----
+4. [✅ Completed](#completed)
 
 ## ✨ New Features
 
 ### Feature Idea 1
 
-- **Description:** Describe the feature idea.
-- **Priority:** High/Medium/Low
-- **Assignee(s):** Team Member Name(s)
-- **Status:** Proposed/In Progress/Completed
+- **Description:** Add side-menu to navigate user and group chats.
+- **Priority:** Medium 🟠
+- **Assignee(s):** Arkada707
+- **Status:** Proposed ✏️
 
 ### Feature Idea 2
 
-- **Description:** Describe the feature idea.
-- **Priority:** High/Medium/Low
-- **Assignee(s):** Team Member Name(s)
-- **Status:** Proposed/In Progress/Completed
+- **Description:** Add ability to change themes.
+- **Priority:** Low 🌕
+- **Assignee(s):** Hazim Yussof
+- **Status:** Proposed ✏️
 
 ## ⚙️ Enhancements
 
 ### Enhancement Idea 1
 
-- **Description:** Describe the enhancement.
-- **Priority:** High/Medium/Low
-- **Assignee(s):** Team Member Name(s)
-- **Status:** Proposed/In Progress/Completed
-
-### Enhancement Idea 2
-
-- **Description:** Describe the enhancement.
-- **Priority:** High/Medium/Low
-- **Assignee(s):** Team Member Name(s)
-- **Status:** Proposed/In Progress/Completed
+- **Description:** Revamp layout design and improve accessibility for phone/tablet layout.
+- **Priority:** High 🔴
+- **Assignee(s):** Arkada707, Hazim Yussof
+- **Status:** Proposed ✏️
 
 ## 🐛 Bug Fixes
 
 ### Bug Fix 1
 
-- **Description:** Describe the bug and the fix needed.
-- **Priority:** High/Medium/Low
-- **Assignee(s):** Team Member Name(s)
-- **Status:** Proposed/In Progress/Completed
-
-### Bug Fix 2
-
-- **Description:** Describe the bug and the fix needed.
-- **Priority:** High/Medium/Low
-- **Assignee(s):** Team Member Name(s)
-- **Status:** Proposed/In Progress/Completed
-
-## 📝 Documentation
-
-### Documentation Task 1
-
-- **Description:** Describe the documentation task.
-- **Priority:** High/Medium/Low
-- **Assignee(s):** Team Member Name(s)
-- **Status:** Proposed/In Progress/Completed
-
-### Documentation Task 2
-
-- **Description:** Describe the documentation task.
-- **Priority:** High/Medium/Low
-- **Assignee(s):** Team Member Name(s)
-- **Status:** Proposed/In Progress/Completed
-
-## 📥 Backlog
-
-### Backlog Item 1
-
-- **Description:** Describe the idea/feature/enhancement that is in the backlog.
-- **Priority:** High/Medium/Low
-- **Assignee(s):** Team Member Name(s)
-- **Status:** Proposed
-
-### Backlog Item 2
-
-- **Description:** Describe the idea/feature/enhancement that is in the backlog.
-- **Priority:** High/Medium/Low
-- **Assignee(s):** Team Member Name(s)
-- **Status:** Proposed
+- **Description:** Chat messages got reseted on server-side but loaded on client-side
+- **Priority:** High 🔴
+- **Assignee(s):** Hazim Yussof
+- **Status:** In Progress 🚧
 
 ## ✅ Completed
 
-### Completed Item 1
+### Completed Bug Fix 1
 
-- **Description:** Describe the idea/feature/enhancement that has been completed.
-- **Assignee(s):** Team Member Name(s)
-- **Completion Date:** YYYY-MM-DD
-
-### Completed Item 2
-
-- **Description:** Describe the idea/feature/enhancement that has been completed.
-- **Assignee(s):** Team Member Name(s)
-- **Completion Date:** YYYY-MM-DD
-
----
+- **Description:** Scrollbar keeps sticking to the bottom
+- **Assignee(s):** Hazim Yussof
+- **Completion Date:** 2024-05-17
 
 ## 🚀 How to Contribute
 
@@ -115,5 +57,3 @@ Welcome to our project's ideas and features list! Here we document and track all
 2. **Discuss:** Use the comments or discussions feature to discuss the idea/feature with the team.
 3. **Assign Tasks:** Assign team members to the task.
 4. **Track Progress:** Update the status as work progresses.
-
----
