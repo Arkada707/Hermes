@@ -20,6 +20,13 @@ exports.handler = async (event, context) => {
       statusCode: 200,
       body: JSON.stringify(newMessage),
     };
+  } else if (event.httpMethod === "DELETE") {
+    // Clear all messages
+    messages = [];
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: "All messages cleared" }),
+    };
   }
 
   return {
@@ -27,4 +34,3 @@ exports.handler = async (event, context) => {
     body: "Method Not Allowed",
   };
 };
-
