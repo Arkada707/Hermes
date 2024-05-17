@@ -8,21 +8,16 @@
   </head>
   <body>
     <div class="chat-container">
-      <div class="header">
-        <button class="create-button" onclick="createPrivateRoom()">[+]</button>
-        <h1>Chat Room</h1>
-      </div>
-      <div id="chat-log"></div>
-      <div class="input-container">
-        <input id="message-input" type="text" placeholder="Type a message..." />
-        <button id="send-button">Send</button>
-      </div>
+        <div class="header">
+            <button class="create-button">[+]</button>
+            <h1>Chat Room</h1>
+        </div>
+        <div id="chat-log"></div>
+        <div class="input-container">
+            <input id="message-input" type="text" placeholder="Type a message...">
+            <button id="send-button">Send</button>
+        </div>
     </div>
-    <audio id="notificationSound">
-      <source src="./sound/alert.mp3" type="audio/mpeg" />
-      Your browser does not support audio element.
-    </audio>
     <script src="main.js"></script>
-    <script src="firebase-sdk.js"></script>
-  </body>
+</body>
 </html>
