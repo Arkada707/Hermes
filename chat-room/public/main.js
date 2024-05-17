@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   });
 
+  createButton.addEventListener("click", deleteMessages());
+
   // Poll for new messages every 1 second
   setInterval(fetchMessages, 1000);
 
@@ -45,6 +47,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
       });
       messageInput.value = "";
     }
+  }
+
+  async function deleteMessages() {
+    await fetch(apiUrl, {
+      method: "DELETE",
+    });
+    chatLog.innerHTML = "";
   }
 
   function generateRandomUsername() {
