@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const meanRemarks = ["I bet your girlfriend left you. LOL!", "I can't stand you!", "You are so annoying!", "Go away!", "You are GAY!", "Nice C#ck!", "Ur PP smol", "Why are you gay?", "Lonely, you are so lonely, you have nobody, you're on your own HA!"];
         const randomRemark = meanRemarks[Math.floor(Math.random() * meanRemarks.length)];
         const messageElement = document.createElement('div');
-        messageElement.textContent = randomRemark;
+        messageElement.textContent = `AI-Button: ${randomRemark}`;
         chatLog.appendChild(messageElement);
         chatLog.scrollTop = chatLog.scrollHeight;  // Auto-scroll to the bottom
     }
