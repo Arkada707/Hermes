@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   });
 
-  // Poll for new messages every 0.5 seconds
-  setInterval(fetchMessages, 500);
+  // Poll for new messages every 2 seconds
+  setInterval(fetchMessages, 2000);
 
   let previousMessageCount = 0;
 
