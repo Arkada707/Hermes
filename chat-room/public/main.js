@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       messageElement.textContent = `${msg.username}: ${msg.message}`;
       chatLog.appendChild(messageElement);
     });
-    chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to the bottom
+    //chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to the bottom
   }
 
   async function sendMessage() {
@@ -193,6 +193,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const messageElement = document.createElement("div");
     messageElement.textContent = `AI-Button: ${randomRemark}`;
     chatLog.appendChild(messageElement);
-    //chatLog.scrollTop = chatLog.scrollHeight;  // Auto-scroll to the bottom
+    chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to the bottom
   }
 });
