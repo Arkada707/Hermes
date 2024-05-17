@@ -15,9 +15,9 @@ Welcome to our project's ideas and features list! Here we document and track all
 
 ## ✨ New Features
 
-### Feature Idea 1
+### New revised layout
 
-- **Description:** Describe the feature idea.
+- **Description:** Change .
 - **Priority:** High/Medium/Low
 - **Assignee(s):** Team Member Name(s)
 - **Status:** Proposed/In Progress/Completed
