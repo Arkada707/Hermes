@@ -47,6 +47,14 @@ body {
   cursor: pointer;
 }
 
+.header .delete-button {
+  padding: 5px 10px;
+  border: 2px solid #00ff00;
+  background-color: #002200;
+  color: #00ff00;
+  cursor: pointer;
+}
+
 #chat-log {
   flex: 1;
   padding: 10px;
