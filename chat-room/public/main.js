@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         second: "2-digit",
         hour12: false,
       };
-      const timestamp = new Date().toLocaleString("default", options);
+      const timestamp = new Date().toLocaleString("en-GB", options);
       const payload = { username, message, timestamp };
       await fetch(apiUrl, {
         method: "POST",
