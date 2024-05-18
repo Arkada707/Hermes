@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     chatLog.innerHTML = "";
     messages.forEach((msg) => {
       const messageElement = document.createElement("div");
-      messageElement.innerHTML = `<p><strong>${msg.username}:</strong> ${msg.message}</p><p>&#9716; ${msg.timestamp}</p>`;
+      messageElement.innerHTML = `<p><strong>${msg.username}:</strong> ${msg.message}</p><p><em>&#9716; ${msg.timestamp}</em></p>`;
       chatLog.appendChild(messageElement);
     });
     //chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to the bottom
