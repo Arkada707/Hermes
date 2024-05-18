@@ -28,11 +28,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const messages = await response.json();
     chatLog.innerHTML = "";
     messages.forEach((msg) => {
+      const serverTimestamp = new Date(msg.timestamp);
+      const options = {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      };
+      const localTimestamp = serverTimestamp.toLocaleString("en-GB", options);
       const messageElement = document.createElement("div");
-      messageElement.innerHTML = `<p><strong>${msg.username}:</strong> ${msg.message}</p><p><em>&#9716; ${msg.timestamp}</em></p>`;
+      messageElement.innerHTML = `<p><strong>${msg.username}:</strong> ${msg.message}</p><p><em>&#9716; ${localTimestamp}</em></p>`;
       chatLog.appendChild(messageElement);
     });
-    //chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to the bottom
+    // chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to the bottom
   }
 
   async function sendMessage() {
