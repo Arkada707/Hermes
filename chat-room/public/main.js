@@ -38,7 +38,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
   async function sendMessage() {
     const message = messageInput.value.trim();
     if (message) {
-      const timestamp = new Date().toLocaleString();
+      const options = {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      };
+      const timestamp = new Date().toLocaleString("default", options);
       const payload = { username, message, timestamp };
       await fetch(apiUrl, {
         method: "POST",
