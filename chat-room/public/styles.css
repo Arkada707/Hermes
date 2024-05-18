@@ -100,13 +100,28 @@ body {
 
 /* Responsive styles for desktop/laptop screens */
 @media only screen and (min-width: 601px) {
-  .chat-container {
-    width: 100%; /* Full width on desktop/laptop screens */
-    height: 100%;
+    .chat-container {
+      width: 100%; /* Full width on desktop/laptop screens */
+      height: 100%;
+    }
+  
+    #chat-log {
+      overflow-y: scroll; /* Enable vertical scrolling on desktop/laptop screens */
+      scrollbar-color: #00ff00 #001a00;
+    }
   }
-
-  #chat-log {
-    overflow-y: scroll; /* Enable vertical scrolling on mobile devices */
-    scrollbar-color: #00ff00 #001a00;
+  
+  /* Custom scrollbar styles for webkit browsers */
+  #chat-log::-webkit-scrollbar {
+    width: 12px;
   }
-}
+  
+  #chat-log::-webkit-scrollbar-track {
+    background: #001a00;
+  }
+  
+  #chat-log::-webkit-scrollbar-thumb {
+    background-color: #00ff00;
+    border-radius: 10px;
+    border: 3px solid #001a00;
+  }
