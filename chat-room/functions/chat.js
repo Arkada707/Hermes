@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
     const newMessage = {
       username,
       message,
-      timestamp: new Date().toISOString(),
+      timestamp: new Date().toLocaleString(),
     };
     messages.push(newMessage);
     return {
