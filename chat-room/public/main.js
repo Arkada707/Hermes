@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     chatLog.innerHTML = "";
     messages.forEach((msg) => {
       const messageElement = document.createElement("div");
-      messageElement.textContent = `${msg.username}: ${msg.message}`;
+      messageElement.textContent = `${msg.username}: ${msg.message} (${msg.timestamp})`;
       chatLog.appendChild(messageElement);
     });
     //chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to the bottom
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   async function sendMessage() {
     const message = messageInput.value.trim();
     if (message) {
-      const payload = { username, message };
+      const payload = { username, message, timestamp };
       await fetch(apiUrl, {
         method: "POST",
         body: JSON.stringify(payload),
