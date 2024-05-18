@@ -196,4 +196,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     chatLog.appendChild(messageElement);
     chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to the bottom
   }
+
+  function updateClock() {
+    const utcClockElement = document.getElementById("utc-clock");
+    const now = new Date();
+    const utcTime = now.toUTCString();
+    utcClockElement.textContent = utcTime;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
 });
