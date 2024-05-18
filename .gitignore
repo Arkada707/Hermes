@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Desktop Servies Store file genereated by MFractors
+.DS_Store
