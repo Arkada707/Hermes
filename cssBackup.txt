@@ -1,0 +1,127 @@
+/* public/styles.css */
+
+/* Base styles */
+body {
+  background-color: #000;
+  color: #00ff00;
+  font-family: "Courier New", Courier, monospace;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Prevent scrolling on the body */
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  border: 2px solid #00ff00;
+  background-color: #001a00;
+  overflow: hidden; /* Prevent scrolling within the container */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 2px solid #00ff00;
+  background-color: #002200;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header .create-button {
+  padding: 5px 10px;
+  border: 2px solid #00ff00;
+  background-color: #002200;
+  color: #00ff00;
+  cursor: pointer;
+}
+
+#chat-log {
+  flex: 1;
+  padding: 10px;
+  background-color: #001a00;
+  overflow: hidden; /* Prevent scrolling by default */
+}
+
+.input-container {
+  display: flex;
+  padding: 10px;
+  border-top: 2px solid #00ff00;
+  background-color: #002200;
+}
+
+#message-input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #00ff00;
+  background-color: #002200;
+  color: #00ff00;
+  margin-right: 10px;
+}
+
+#send-button {
+  padding: 10px;
+  border: 2px solid #00ff00;
+  background-color: #002200;
+  color: #00ff00;
+  cursor: pointer;
+}
+
+#send-button:hover {
+  background-color: #004400;
+}
+
+/* Responsive styles for mobile devices */
+@media only screen and (max-width: 600px) {
+  .chat-container {
+    width: 100%; /* Full width on small screens */
+    height: 85%;
+    overflow-y: scroll;
+    scrollbar-color: #00ff00 #001a00;
+  }
+
+  #chat-log {
+    overflow-y: scroll; /* Enable vertical scrolling on mobile devices */
+    overflow-x: scroll; /* Enable horizontal scrolling on mobile devices */
+    scrollbar-color: #00ff00 #001a00;
+  }
+}
+
+/* Responsive styles for desktop/laptop screens */
+@media only screen and (min-width: 601px) {
+    .chat-container {
+      width: 100%; /* Full width on desktop/laptop screens */
+      height: 100%;
+    }
+  
+    #chat-log {
+      overflow-y: scroll; /* Enable vertical scrolling on desktop/laptop screens */
+      scrollbar-color: #00ff00 #001a00;
+    }
+  }
+  
+  /* Custom scrollbar styles for webkit browsers */
+  #chat-log::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  #chat-log::-webkit-scrollbar-track {
+    background: #001a00;
+  }
+  
+  #chat-log::-webkit-scrollbar-thumb {
+    background-color: #00ff00;
+    border-radius: 10px;
+    border: 3px solid #001a00;
+  }

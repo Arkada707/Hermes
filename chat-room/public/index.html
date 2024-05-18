@@ -1,26 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Room</title>
-    <link rel="icon" type="image/svg+xml" href="public/images/favicon.svg">
-    <link rel="icon" type="image/png" href="public/images/favicon.png">
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="chat-container">
-      <div class="header">
-        <button class="create-button">[+]</button>
-        <h1>Chat Room</h1>
-      </div>
-      <div id="chat-log"></div>
-      <div class="input-container">
-        <input id="message-input" type="text" placeholder="Type a message..." />
-        <button id="send-button">Send</button>
-      </div>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <button class="create-button">[+]</button>
+            <div id="tabs">
+                <!-- Tabs for direct messages and group chats will go here -->
+            </div>
+        </div>
+        <div class="chat-container">
+            <div class="header">
+                <h1>Chat Room</h1>
+            </div>
+            <div id="chat-log"></div>
+            <div class="input-container">
+                <input id="message-input" type="text" placeholder="Type a message...">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
     </div>
     <script src="main.js"></script>
-  </body>
+</body>
 </html>
