@@ -28,16 +28,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const messages = await response.json();
     chatLog.innerHTML = "";
     messages.forEach((msg) => {
-      const messageElement = document.createElement("div");
-      messageElement.innerHTML = `<p><strong>${msg.username}:</strong> ${msg.message}</p><p><em>&#9716; ${msg.timestamp}</em></p>`;
-      chatLog.appendChild(messageElement);
-    });
-    //chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to the bottom
-  }
-
-  async function sendMessage() {
-    const message = messageInput.value.trim();
-    if (message) {
+      const serverTimestamp = new Date(msg.timestamp);
       const options = {
         year: "numeric",
         month: "2-digit",
@@ -47,7 +38,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
         second: "2-digit",
         hour12: false,
       };
-      const timestamp = new Date().toLocaleString("en-GB", options);
+      const localTimestamp = serverTimestamp.toLocaleString("en-GB", options);
+      const messageElement = document.createElement("div");
+      messageElement.innerHTML = `<p><strong>${msg.username}:</strong> ${msg.message}</p><p><em>&#9716; ${localTimestamp}</em></p>`;
+      chatLog.appendChild(messageElement);
+    });
+    // chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to the bottom
+  }
+
+  async function sendMessage() {
+    const message = messageInput.value.trim();
+    if (message) {
+      const timestamp = new Date().toLocaleString();
       const payload = { username, message, timestamp };
       await fetch(apiUrl, {
         method: "POST",
